@@ -1,0 +1,416 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Aide &amp; Support — Follicle</title>
+  <style>
+    *, *::before, *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      background-color: #0a0a0a;
+      color: #fafafa;
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+      line-height: 1.7;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+
+    .container {
+      max-width: 720px;
+      margin: 0 auto;
+      padding: 40px 20px 60px;
+    }
+
+    /* Header */
+    .header {
+      text-align: center;
+      margin-bottom: 48px;
+    }
+
+    .logo {
+      font-size: 28px;
+      font-weight: 700;
+      color: #34d399;
+      letter-spacing: -0.5px;
+      margin-bottom: 8px;
+    }
+
+    .logo-dot {
+      display: inline-block;
+      width: 8px;
+      height: 8px;
+      background: #34d399;
+      border-radius: 50%;
+      margin-left: 2px;
+      vertical-align: middle;
+      position: relative;
+      top: -2px;
+    }
+
+    .header h1 {
+      font-size: 22px;
+      font-weight: 600;
+      color: #fafafa;
+      margin-bottom: 8px;
+    }
+
+    .header .subtitle {
+      font-size: 15px;
+      color: #a1a1aa;
+    }
+
+    /* Section title */
+    .section-title {
+      font-size: 13px;
+      font-weight: 600;
+      color: #71717a;
+      text-transform: uppercase;
+      letter-spacing: 1.2px;
+      margin-bottom: 20px;
+      padding-left: 4px;
+    }
+
+    /* FAQ cards */
+    .faq-card {
+      background: #171717;
+      border: 1px solid #27272a;
+      border-radius: 16px;
+      margin-bottom: 12px;
+      overflow: hidden;
+      transition: border-color 0.25s ease, box-shadow 0.25s ease;
+    }
+
+    .faq-card:hover {
+      border-color: #3f3f46;
+    }
+
+    details {
+      width: 100%;
+    }
+
+    details summary {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 20px 24px;
+      cursor: pointer;
+      list-style: none;
+      font-size: 16px;
+      font-weight: 500;
+      color: #fafafa;
+      transition: color 0.2s ease;
+      user-select: none;
+      -webkit-user-select: none;
+    }
+
+    details summary::-webkit-details-marker {
+      display: none;
+    }
+
+    details summary::after {
+      content: '';
+      display: inline-block;
+      width: 8px;
+      height: 8px;
+      border-right: 2px solid #71717a;
+      border-bottom: 2px solid #71717a;
+      transform: rotate(45deg);
+      transition: transform 0.25s ease, border-color 0.25s ease;
+      flex-shrink: 0;
+      margin-left: 16px;
+    }
+
+    details[open] summary::after {
+      transform: rotate(-135deg);
+      border-color: #34d399;
+    }
+
+    details[open] summary {
+      color: #34d399;
+    }
+
+    details[open] .faq-answer {
+      max-height: 500px;
+      opacity: 1;
+    }
+
+    .faq-answer {
+      padding: 0 24px 20px;
+      font-size: 15px;
+      color: #a1a1aa;
+      line-height: 1.7;
+      border-top: 1px solid #27272a;
+      padding-top: 16px;
+      margin-top: -2px;
+    }
+
+    .faq-answer strong {
+      color: #fafafa;
+      font-weight: 500;
+    }
+
+    .faq-number {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 26px;
+      height: 26px;
+      background: rgba(52, 211, 153, 0.1);
+      border-radius: 8px;
+      font-size: 12px;
+      font-weight: 700;
+      color: #34d399;
+      margin-right: 14px;
+      flex-shrink: 0;
+    }
+
+    .summary-text {
+      flex: 1;
+    }
+
+    /* Contact card */
+    .contact-section {
+      margin-top: 48px;
+    }
+
+    .contact-card {
+      background: #171717;
+      border: 1px solid #27272a;
+      border-radius: 16px;
+      padding: 32px 28px;
+      text-align: center;
+      transition: border-color 0.2s ease;
+    }
+
+    .contact-card:hover {
+      border-color: #3f3f46;
+    }
+
+    .contact-icon {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 52px;
+      height: 52px;
+      background: rgba(52, 211, 153, 0.1);
+      border-radius: 14px;
+      margin-bottom: 16px;
+    }
+
+    .contact-icon svg {
+      width: 24px;
+      height: 24px;
+      fill: #34d399;
+    }
+
+    .contact-card h3 {
+      font-size: 18px;
+      font-weight: 600;
+      color: #fafafa;
+      margin-bottom: 8px;
+    }
+
+    .contact-card .email-link {
+      display: inline-block;
+      font-size: 16px;
+      font-weight: 500;
+      color: #34d399;
+      text-decoration: none;
+      padding: 10px 24px;
+      background: rgba(52, 211, 153, 0.1);
+      border-radius: 12px;
+      margin: 12px 0;
+      transition: background 0.2s ease, color 0.2s ease;
+    }
+
+    .contact-card .email-link:hover {
+      background: rgba(52, 211, 153, 0.18);
+      text-decoration: none;
+    }
+
+    .contact-card .response-time {
+      font-size: 14px;
+      color: #71717a;
+      margin-top: 4px;
+    }
+
+    /* Links */
+    a {
+      color: #34d399;
+      text-decoration: none;
+      transition: color 0.2s ease;
+    }
+
+    a:hover {
+      color: #6ee7b7;
+      text-decoration: underline;
+    }
+
+    /* Footer */
+    .footer {
+      text-align: center;
+      margin-top: 48px;
+      padding-top: 24px;
+      border-top: 1px solid #27272a;
+    }
+
+    .footer p {
+      font-size: 13px;
+      color: #71717a;
+      margin-bottom: 8px;
+    }
+
+    .footer a {
+      font-size: 13px;
+    }
+
+    /* Responsive */
+    @media (max-width: 480px) {
+      .container {
+        padding: 28px 16px 48px;
+      }
+
+      .header h1 {
+        font-size: 20px;
+      }
+
+      details summary {
+        padding: 18px 18px;
+        font-size: 15px;
+      }
+
+      .faq-answer {
+        padding: 0 18px 18px;
+        padding-top: 14px;
+      }
+
+      .contact-card {
+        padding: 28px 20px;
+      }
+
+      .faq-number {
+        width: 24px;
+        height: 24px;
+        font-size: 11px;
+        margin-right: 12px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+
+    <div class="header">
+      <div class="logo">Follicle<span class="logo-dot"></span></div>
+      <h1>Aide &amp; Support</h1>
+      <p class="subtitle">Comment pouvons-nous vous aider ?</p>
+    </div>
+
+    <p class="section-title">Questions fr&eacute;quentes</p>
+
+    <!-- FAQ 1 -->
+    <div class="faq-card">
+      <details>
+        <summary>
+          <span class="faq-number">1</span>
+          <span class="summary-text">Comment fonctionne l'analyse capillaire ?</span>
+        </summary>
+        <div class="faq-answer">
+          Follicle utilise l'intelligence artificielle (<strong>GPT-5 Nano</strong>) pour &eacute;valuer visuellement votre &eacute;tat capillaire. Prenez une photo de face et du sommet du cr&acirc;ne, r&eacute;pondez &agrave; quelques questions, et notre algorithme calcule un score pr&eacute;cis bas&eacute; sur <strong>4 crit&egrave;res</strong> : r&eacute;cession frontale, r&eacute;cession temporale, densit&eacute; et miniaturisation.
+        </div>
+      </details>
+    </div>
+
+    <!-- FAQ 2 -->
+    <div class="faq-card">
+      <details>
+        <summary>
+          <span class="faq-number">2</span>
+          <span class="summary-text">Mes donn&eacute;es sont-elles s&eacute;curis&eacute;es ?</span>
+        </summary>
+        <div class="faq-answer">
+          Absolument. Par d&eacute;faut, toutes vos donn&eacute;es restent <strong>sur votre appareil</strong>. Si vous cr&eacute;ez un compte, elles sont chiffr&eacute;es et stock&eacute;es sur des serveurs s&eacute;curis&eacute;s en Europe (<strong>Supabase</strong>). Vos photos ne sont jamais partag&eacute;es ni conserv&eacute;es par les services d'analyse.
+        </div>
+      </details>
+    </div>
+
+    <!-- FAQ 3 -->
+    <div class="faq-card">
+      <details>
+        <summary>
+          <span class="faq-number">3</span>
+          <span class="summary-text">Qu'est-ce que l'Audit Express vs l'Analyse Approfondie ?</span>
+        </summary>
+        <div class="faq-answer">
+          L'<strong>Audit Express</strong> (2 min) n&eacute;cessite 1 photo de face + 4 questions rapides. L'<strong>Analyse Approfondie</strong> (PRO) utilise 5 angles de prise de vue cliniques + 16 questions d&eacute;taill&eacute;es pour une &eacute;valuation plus pr&eacute;cise. Les deux calculent un score sur les m&ecirc;mes crit&egrave;res.
+        </div>
+      </details>
+    </div>
+
+    <!-- FAQ 4 -->
+    <div class="faq-card">
+      <details>
+        <summary>
+          <span class="faq-number">4</span>
+          <span class="summary-text">Comment fonctionne la simulation de greffe ?</span>
+        </summary>
+        <div class="faq-answer">
+          La simulation analyse votre photo pour d&eacute;terminer votre stade sur l'<strong>&eacute;chelle Norwood-Hamilton</strong>, &eacute;valuer votre candidature &agrave; une greffe, estimer le nombre de greffons n&eacute;cessaires et g&eacute;n&eacute;rer une image de simulation du r&eacute;sultat post-greffe. C'est un outil informatif, <strong>pas un diagnostic m&eacute;dical</strong>.
+        </div>
+      </details>
+    </div>
+
+    <!-- FAQ 5 -->
+    <div class="faq-card">
+      <details>
+        <summary>
+          <span class="faq-number">5</span>
+          <span class="summary-text">Puis-je exporter ou supprimer mes donn&eacute;es ?</span>
+        </summary>
+        <div class="faq-answer">
+          Oui, conform&eacute;ment au <strong>RGPD</strong>. Allez dans <strong>Param&egrave;tres</strong> (ou Profil &gt; Confidentialit&eacute; &amp; Donn&eacute;es) pour exporter toutes vos donn&eacute;es ou les supprimer d&eacute;finitivement. La suppression est irr&eacute;versible et inclut les donn&eacute;es cloud si vous &ecirc;tes connect&eacute;.
+        </div>
+      </details>
+    </div>
+
+    <!-- FAQ 6 -->
+    <div class="faq-card">
+      <details>
+        <summary>
+          <span class="faq-number">6</span>
+          <span class="summary-text">&Agrave; quelle fr&eacute;quence dois-je faire une analyse ?</span>
+        </summary>
+        <div class="faq-answer">
+          Nous recommandons un audit tous les <strong>7 jours</strong> pour un suivi optimal. L'application limite &agrave; 1 audit par jour pour garantir des r&eacute;sultats coh&eacute;rents. Pour la simulation de greffe, la limite est &eacute;galement de 1 par jour.
+        </div>
+      </details>
+    </div>
+
+    <!-- Contact -->
+    <div class="contact-section">
+      <p class="section-title">Nous contacter</p>
+      <div class="contact-card">
+        <div class="contact-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+            <path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/>
+          </svg>
+        </div>
+        <h3>Une question ?</h3>
+        <a class="email-link" href="mailto:follicle.app@gmail.com">follicle.app@gmail.com</a>
+        <p class="response-time">Nous r&eacute;pondons sous 24-48h</p>
+      </div>
+    </div>
+
+    <div class="footer">
+      <p>&copy; 2026 Pidotis &mdash; Follicle v0.0.4</p>
+      <a href="privacy.html">Politique de confidentialit&eacute; &rarr;</a>
+    </div>
+
+  </div>
+</body>
+</html>
