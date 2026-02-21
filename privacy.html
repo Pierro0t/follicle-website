@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Politique de confidentialité — Follicle</title>
+  <title>Politique de confidentialit&eacute; &mdash; Follicle</title>
   <style>
     *, *::before, *::after {
       margin: 0;
@@ -62,6 +62,45 @@
     .header .date {
       font-size: 14px;
       color: #71717a;
+    }
+
+    /* Language toggle */
+    .lang-toggle {
+      display: flex;
+      justify-content: center;
+      gap: 0;
+      margin-bottom: 12px;
+    }
+
+    .lang-btn {
+      padding: 6px 16px;
+      font-size: 13px;
+      font-weight: 600;
+      border: 1px solid #27272a;
+      background: transparent;
+      color: #71717a;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      letter-spacing: 0.5px;
+    }
+
+    .lang-btn:first-child {
+      border-radius: 8px 0 0 8px;
+      border-right: none;
+    }
+
+    .lang-btn:last-child {
+      border-radius: 0 8px 8px 0;
+    }
+
+    .lang-btn.active {
+      background: rgba(52, 211, 153, 0.12);
+      color: #34d399;
+      border-color: rgba(52, 211, 153, 0.3);
+    }
+
+    .lang-btn.active + .lang-btn {
+      border-left-color: rgba(52, 211, 153, 0.3);
     }
 
     /* Cards */
@@ -217,21 +256,25 @@
 
     <div class="header">
       <div class="logo">Follicle<span class="logo-dot"></span></div>
-      <h1>Politique de confidentialit&eacute;</h1>
-      <p class="date">Date d'effet : 16 f&eacute;vrier 2026</p>
+      <div class="lang-toggle">
+        <button class="lang-btn active" onclick="setLang('fr')">FR</button>
+        <button class="lang-btn" onclick="setLang('en')">EN</button>
+      </div>
+      <h1 id="page-title">Politique de confidentialit&eacute;</h1>
+      <p class="date" id="page-date">Date d'effet : 16 f&eacute;vrier 2026</p>
     </div>
 
     <!-- 1. Introduction -->
     <div class="card">
       <h2><span class="section-number">1</span> Introduction</h2>
-      <p>Follicle est une application d'analyse capillaire. Nous respectons votre vie priv&eacute;e et vos donn&eacute;es personnelles. Cette politique explique comment nous collectons, utilisons et prot&eacute;geons vos informations.</p>
+      <p id="s1-text">Follicle est une application d'analyse capillaire. Nous respectons votre vie priv&eacute;e et vos donn&eacute;es personnelles. Cette politique explique comment nous collectons, utilisons et prot&eacute;geons vos informations.</p>
     </div>
 
     <!-- 2. Collecte des données -->
     <div class="card">
-      <h2><span class="section-number">2</span> Collecte des donn&eacute;es</h2>
-      <p>Donn&eacute;es collect&eacute;es :</p>
-      <ul>
+      <h2><span class="section-number">2</span> <span id="s2-title">Collecte des donn&eacute;es</span></h2>
+      <p id="s2-intro">Donn&eacute;es collect&eacute;es :</p>
+      <ul id="s2-list">
         <li>Photos capillaires (visage, vertex, tempes, occiput)</li>
         <li>R&eacute;ponses aux questionnaires (profil de base, express, approfondi)</li>
         <li>Score d'analyse et historique</li>
@@ -239,14 +282,14 @@
         <li>Pr&eacute;f&eacute;rences d'application</li>
       </ul>
       <div class="divider"></div>
-      <p>Toutes ces donn&eacute;es sont cr&eacute;&eacute;es par vous et pour vous.</p>
+      <p id="s2-outro">Toutes ces donn&eacute;es sont cr&eacute;&eacute;es par vous et pour vous.</p>
     </div>
 
     <!-- 3. Utilisation des données -->
     <div class="card">
-      <h2><span class="section-number">3</span> Utilisation des donn&eacute;es</h2>
-      <p>Vos donn&eacute;es sont utilis&eacute;es exclusivement pour :</p>
-      <ul>
+      <h2><span class="section-number">3</span> <span id="s3-title">Utilisation des donn&eacute;es</span></h2>
+      <p id="s3-intro">Vos donn&eacute;es sont utilis&eacute;es exclusivement pour :</p>
+      <ul id="s3-list">
         <li>G&eacute;n&eacute;rer votre analyse capillaire personnalis&eacute;e</li>
         <li>Calculer votre score et suivre votre &eacute;volution</li>
         <li>Fournir des recommandations adapt&eacute;es &agrave; votre profil</li>
@@ -257,10 +300,10 @@
 
     <!-- 4. Stockage et sécurité -->
     <div class="card">
-      <h2><span class="section-number">4</span> Stockage et s&eacute;curit&eacute;</h2>
-      <p>Par d&eacute;faut, toutes vos donn&eacute;es sont stock&eacute;es <span class="highlight">localement sur votre appareil</span>.</p>
-      <p>Si vous cr&eacute;ez un compte :</p>
-      <ul>
+      <h2><span class="section-number">4</span> <span id="s4-title">Stockage et s&eacute;curit&eacute;</span></h2>
+      <p id="s4-intro">Par d&eacute;faut, toutes vos donn&eacute;es sont stock&eacute;es <span class="highlight">localement sur votre appareil</span>.</p>
+      <p id="s4-sub">Si vous cr&eacute;ez un compte :</p>
+      <ul id="s4-list">
         <li>Les donn&eacute;es sont <strong>chiffr&eacute;es en transit</strong> (TLS 1.3)</li>
         <li>Stockage s&eacute;curis&eacute; via <strong>Supabase</strong> (h&eacute;berg&eacute; en Europe)</li>
         <li>Photos stock&eacute;es dans des buckets priv&eacute;s avec acc&egrave;s contr&ocirc;l&eacute; (RLS)</li>
@@ -270,48 +313,188 @@
 
     <!-- 5. Services tiers -->
     <div class="card">
-      <h2><span class="section-number">5</span> Services tiers</h2>
-      <h3>Service d'analyse IA</h3>
-      <p>Vos photos sont envoy&eacute;es &agrave; un service d'intelligence artificielle pour analyse visuelle uniquement. Les images ne sont pas conserv&eacute;es apr&egrave;s traitement. Aucune donn&eacute;e personnelle identifiable n'est envoy&eacute;e.</p>
+      <h2><span class="section-number">5</span> <span id="s5-title">Services tiers</span></h2>
+      <h3 id="s5-h3a">Service d'analyse IA</h3>
+      <p id="s5-text-a">Vos photos sont envoy&eacute;es &agrave; un service d'intelligence artificielle pour analyse visuelle uniquement. Les images ne sont pas conserv&eacute;es apr&egrave;s traitement. Aucune donn&eacute;e personnelle identifiable n'est envoy&eacute;e.</p>
       <h3>Supabase</h3>
-      <p>H&eacute;bergement des donn&eacute;es cloud (PostgreSQL + Storage).</p>
+      <p id="s5-text-b">H&eacute;bergement des donn&eacute;es cloud (PostgreSQL + Storage).</p>
       <h3>Apple Sign In / Google OAuth</h3>
-      <p>Authentification s&eacute;curis&eacute;e&nbsp;&mdash;&nbsp;nous ne stockons que votre nom et email.</p>
+      <p id="s5-text-c">Authentification s&eacute;curis&eacute;e &mdash; nous ne stockons que votre nom et email.</p>
     </div>
 
     <!-- 6. Vos droits (RGPD) -->
     <div class="card">
-      <h2><span class="section-number">6</span> Vos droits (RGPD)</h2>
-      <p>Conform&eacute;ment au RGPD, vous disposez des droits suivants :</p>
-      <ul>
-        <li><strong>Droit d'acc&egrave;s</strong> &mdash; Consultez toutes vos donn&eacute;es dans l'application</li>
-        <li><strong>Droit de portabilit&eacute;</strong> &mdash; Exportez vos donn&eacute;es depuis Param&egrave;tres &gt; Exporter</li>
-        <li><strong>Droit de rectification</strong> &mdash; Modifiez vos informations depuis votre Profil</li>
-        <li><strong>Droit &agrave; l'effacement</strong> &mdash; Supprimez toutes vos donn&eacute;es depuis Param&egrave;tres &gt; Supprimer mes donn&eacute;es</li>
-        <li><strong>Droit d'opposition</strong> &mdash; Vous pouvez utiliser l'application sans compte (mode local)</li>
+      <h2><span class="section-number">6</span> <span id="s6-title">Vos droits (RGPD)</span></h2>
+      <p id="s6-intro">Conform&eacute;ment au RGPD, vous disposez des droits suivants :</p>
+      <ul id="s6-list">
+        <li><strong id="s6-r1">Droit d'acc&egrave;s</strong> &mdash; <span id="s6-d1">Consultez toutes vos donn&eacute;es dans l'application</span></li>
+        <li><strong id="s6-r2">Droit de portabilit&eacute;</strong> &mdash; <span id="s6-d2">Exportez vos donn&eacute;es depuis Param&egrave;tres &gt; Exporter</span></li>
+        <li><strong id="s6-r3">Droit de rectification</strong> &mdash; <span id="s6-d3">Modifiez vos informations depuis votre Profil</span></li>
+        <li><strong id="s6-r4">Droit &agrave; l'effacement</strong> &mdash; <span id="s6-d4">Supprimez toutes vos donn&eacute;es depuis Param&egrave;tres &gt; Supprimer mes donn&eacute;es</span></li>
+        <li><strong id="s6-r5">Droit d'opposition</strong> &mdash; <span id="s6-d5">Vous pouvez utiliser l'application sans compte (mode local)</span></li>
       </ul>
     </div>
 
     <!-- 7. Cookies et trackers -->
     <div class="card">
-      <h2><span class="section-number">7</span> Cookies et trackers</h2>
-      <p>Follicle n'utilise <span class="highlight">aucun cookie</span>, <span class="highlight">aucun tracker</span>, <span class="highlight">aucun outil d'analytics tiers</span>.</p>
-      <p>Nous ne collectons aucune donn&eacute;e de navigation ou de comportement.</p>
+      <h2><span class="section-number">7</span> <span id="s7-title">Cookies et trackers</span></h2>
+      <p id="s7-text">Follicle n'utilise <span class="highlight">aucun cookie</span>, <span class="highlight">aucun tracker</span>, <span class="highlight">aucun outil d'analytics tiers</span>.</p>
+      <p id="s7-text2">Nous ne collectons aucune donn&eacute;e de navigation ou de comportement.</p>
     </div>
 
     <!-- 8. Contact -->
     <div class="card">
       <h2><span class="section-number">8</span> Contact</h2>
-      <p>Pour toute question relative &agrave; vos donn&eacute;es :</p>
+      <p id="s8-intro">Pour toute question relative &agrave; vos donn&eacute;es :</p>
       <p>Email : <a href="mailto:follicle.app@gmail.com">follicle.app@gmail.com</a></p>
-      <p>Nous nous engageons &agrave; r&eacute;pondre dans un d&eacute;lai de <span class="highlight">48 heures</span>.</p>
+      <p id="s8-delay">Nous nous engageons &agrave; r&eacute;pondre dans un d&eacute;lai de <span class="highlight">48 heures</span>.</p>
     </div>
 
     <div class="footer">
-      <p>&copy; 2026 Pidotis &mdash; Follicle v0.0.4</p>
-      <a href="support.html">Aide &amp; Support &rarr;</a>
+      <p>&copy; 2026 Pidotis &mdash; Follicle v1.0.0</p>
+      <a href="support.html" id="footer-link">Aide &amp; Support &rarr;</a>
     </div>
 
   </div>
+
+  <script>
+    const translations = {
+      fr: {
+        'page-title': 'Politique de confidentialit\u00e9',
+        'page-date': 'Date d\u2019effet : 16 f\u00e9vrier 2026',
+        's1-text': 'Follicle est une application d\u2019analyse capillaire. Nous respectons votre vie priv\u00e9e et vos donn\u00e9es personnelles. Cette politique explique comment nous collectons, utilisons et prot\u00e9geons vos informations.',
+        's2-title': 'Collecte des donn\u00e9es',
+        's2-intro': 'Donn\u00e9es collect\u00e9es :',
+        's2-list': [
+          'Photos capillaires (visage, vertex, tempes, occiput)',
+          'R\u00e9ponses aux questionnaires (profil de base, express, approfondi)',
+          'Score d\u2019analyse et historique',
+          'Donn\u00e9es de profil (nom, email si connect\u00e9)',
+          'Pr\u00e9f\u00e9rences d\u2019application',
+        ],
+        's2-outro': 'Toutes ces donn\u00e9es sont cr\u00e9\u00e9es par vous et pour vous.',
+        's3-title': 'Utilisation des donn\u00e9es',
+        's3-intro': 'Vos donn\u00e9es sont utilis\u00e9es exclusivement pour :',
+        's3-list': [
+          'G\u00e9n\u00e9rer votre analyse capillaire personnalis\u00e9e',
+          'Calculer votre score et suivre votre \u00e9volution',
+          'Fournir des recommandations adapt\u00e9es \u00e0 votre profil',
+          'Permettre la simulation de greffe capillaire',
+          'Synchroniser vos donn\u00e9es entre appareils (si connect\u00e9)',
+        ],
+        's4-title': 'Stockage et s\u00e9curit\u00e9',
+        's4-intro': 'Par d\u00e9faut, toutes vos donn\u00e9es sont stock\u00e9es <span class="highlight">localement sur votre appareil</span>.',
+        's4-sub': 'Si vous cr\u00e9ez un compte :',
+        's4-list': [
+          'Les donn\u00e9es sont <strong>chiffr\u00e9es en transit</strong> (TLS 1.3)',
+          'Stockage s\u00e9curis\u00e9 via <strong>Supabase</strong> (h\u00e9berg\u00e9 en Europe)',
+          'Photos stock\u00e9es dans des buckets priv\u00e9s avec acc\u00e8s contr\u00f4l\u00e9 (RLS)',
+          'Tokens d\u2019authentification stock\u00e9s dans le <strong>Secure Store</strong> de l\u2019appareil',
+        ],
+        's5-title': 'Services tiers',
+        's5-h3a': 'Service d\u2019analyse IA',
+        's5-text-a': 'Vos photos sont envoy\u00e9es \u00e0 un service d\u2019intelligence artificielle pour analyse visuelle uniquement. Les images ne sont pas conserv\u00e9es apr\u00e8s traitement. Aucune donn\u00e9e personnelle identifiable n\u2019est envoy\u00e9e.',
+        's5-text-b': 'H\u00e9bergement des donn\u00e9es cloud (PostgreSQL + Storage).',
+        's5-text-c': 'Authentification s\u00e9curis\u00e9e \u2014 nous ne stockons que votre nom et email.',
+        's6-title': 'Vos droits (RGPD)',
+        's6-intro': 'Conform\u00e9ment au RGPD, vous disposez des droits suivants :',
+        's6-r1': 'Droit d\u2019acc\u00e8s', 's6-d1': 'Consultez toutes vos donn\u00e9es dans l\u2019application',
+        's6-r2': 'Droit de portabilit\u00e9', 's6-d2': 'Exportez vos donn\u00e9es depuis Param\u00e8tres > Exporter',
+        's6-r3': 'Droit de rectification', 's6-d3': 'Modifiez vos informations depuis votre Profil',
+        's6-r4': 'Droit \u00e0 l\u2019effacement', 's6-d4': 'Supprimez toutes vos donn\u00e9es depuis Param\u00e8tres > Supprimer mes donn\u00e9es',
+        's6-r5': 'Droit d\u2019opposition', 's6-d5': 'Vous pouvez utiliser l\u2019application sans compte (mode local)',
+        's7-title': 'Cookies et trackers',
+        's7-text': 'Follicle n\u2019utilise <span class="highlight">aucun cookie</span>, <span class="highlight">aucun tracker</span>, <span class="highlight">aucun outil d\u2019analytics tiers</span>.',
+        's7-text2': 'Nous ne collectons aucune donn\u00e9e de navigation ou de comportement.',
+        's8-intro': 'Pour toute question relative \u00e0 vos donn\u00e9es :',
+        's8-delay': 'Nous nous engageons \u00e0 r\u00e9pondre dans un d\u00e9lai de <span class="highlight">48 heures</span>.',
+        'footer-link': 'Aide & Support \u2192',
+      },
+      en: {
+        'page-title': 'Privacy Policy',
+        'page-date': 'Effective date: February 16, 2026',
+        's1-text': 'Follicle is a hair analysis application. We respect your privacy and personal data. This policy explains how we collect, use and protect your information.',
+        's2-title': 'Data Collection',
+        's2-intro': 'Data collected:',
+        's2-list': [
+          'Hair photos (face, vertex, temples, occiput)',
+          'Questionnaire answers (baseline profile, express, in-depth)',
+          'Analysis score and history',
+          'Profile data (name, email if signed in)',
+          'App preferences',
+        ],
+        's2-outro': 'All this data is created by you and for you.',
+        's3-title': 'Data Usage',
+        's3-intro': 'Your data is used exclusively for:',
+        's3-list': [
+          'Generating your personalized hair analysis',
+          'Calculating your score and tracking your progress',
+          'Providing recommendations tailored to your profile',
+          'Enabling hair transplant simulation',
+          'Syncing your data across devices (if signed in)',
+        ],
+        's4-title': 'Storage & Security',
+        's4-intro': 'By default, all your data is stored <span class="highlight">locally on your device</span>.',
+        's4-sub': 'If you create an account:',
+        's4-list': [
+          'Data is <strong>encrypted in transit</strong> (TLS 1.3)',
+          'Secure storage via <strong>Supabase</strong> (hosted in Europe)',
+          'Photos stored in private buckets with controlled access (RLS)',
+          'Auth tokens stored in the device\u2019s <strong>Secure Store</strong>',
+        ],
+        's5-title': 'Third-Party Services',
+        's5-h3a': 'AI Analysis Service',
+        's5-text-a': 'Your photos are sent to an artificial intelligence service for visual analysis only. Images are not retained after processing. No personally identifiable data is sent.',
+        's5-text-b': 'Cloud data hosting (PostgreSQL + Storage).',
+        's5-text-c': 'Secure authentication \u2014 we only store your name and email.',
+        's6-title': 'Your Rights (GDPR)',
+        's6-intro': 'Under the GDPR, you have the following rights:',
+        's6-r1': 'Right of access', 's6-d1': 'View all your data within the app',
+        's6-r2': 'Right to portability', 's6-d2': 'Export your data from Settings > Export',
+        's6-r3': 'Right to rectification', 's6-d3': 'Edit your information from your Profile',
+        's6-r4': 'Right to erasure', 's6-d4': 'Delete all your data from Settings > Delete my data',
+        's6-r5': 'Right to object', 's6-d5': 'You can use the app without an account (local mode)',
+        's7-title': 'Cookies & Trackers',
+        's7-text': 'Follicle uses <span class="highlight">no cookies</span>, <span class="highlight">no trackers</span>, <span class="highlight">no third-party analytics</span>.',
+        's7-text2': 'We do not collect any browsing or behavioral data.',
+        's8-intro': 'For any questions about your data:',
+        's8-delay': 'We are committed to responding within <span class="highlight">48 hours</span>.',
+        'footer-link': 'Help & Support \u2192',
+      },
+    };
+
+    let currentLang = 'fr';
+
+    function setLang(lang) {
+      currentLang = lang;
+      document.documentElement.lang = lang;
+      document.querySelectorAll('.lang-btn').forEach(btn => {
+        btn.classList.toggle('active', btn.textContent === lang.toUpperCase());
+      });
+
+      const t = translations[lang];
+      Object.keys(t).forEach(id => {
+        const el = document.getElementById(id);
+        if (!el) return;
+        const val = t[id];
+        if (Array.isArray(val)) {
+          const items = el.querySelectorAll('li');
+          val.forEach((text, i) => { if (items[i]) items[i].innerHTML = text; });
+        } else {
+          el.innerHTML = val;
+        }
+      });
+
+      document.title = lang === 'fr'
+        ? 'Politique de confidentialit\u00e9 \u2014 Follicle'
+        : 'Privacy Policy \u2014 Follicle';
+    }
+
+    // Auto-detect browser language: default to EN for any non-French browser
+    (function() {
+      var browserLang = (navigator.language || navigator.userLanguage || 'fr').substring(0, 2).toLowerCase();
+      if (browserLang !== 'fr') setLang('en');
+    })();
+  </script>
 </body>
 </html>

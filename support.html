@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Aide &amp; Support — Follicle</title>
+  <title>Aide &amp; Support &mdash; Follicle</title>
   <style>
     *, *::before, *::after {
       margin: 0;
@@ -62,6 +62,45 @@
     .header .subtitle {
       font-size: 15px;
       color: #a1a1aa;
+    }
+
+    /* Language toggle */
+    .lang-toggle {
+      display: flex;
+      justify-content: center;
+      gap: 0;
+      margin-bottom: 12px;
+    }
+
+    .lang-btn {
+      padding: 6px 16px;
+      font-size: 13px;
+      font-weight: 600;
+      border: 1px solid #27272a;
+      background: transparent;
+      color: #71717a;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      letter-spacing: 0.5px;
+    }
+
+    .lang-btn:first-child {
+      border-radius: 8px 0 0 8px;
+      border-right: none;
+    }
+
+    .lang-btn:last-child {
+      border-radius: 0 8px 8px 0;
+    }
+
+    .lang-btn.active {
+      background: rgba(52, 211, 153, 0.12);
+      color: #34d399;
+      border-color: rgba(52, 211, 153, 0.3);
+    }
+
+    .lang-btn.active + .lang-btn {
+      border-left-color: rgba(52, 211, 153, 0.3);
     }
 
     /* Section title */
@@ -307,20 +346,24 @@
 
     <div class="header">
       <div class="logo">Follicle<span class="logo-dot"></span></div>
-      <h1>Aide &amp; Support</h1>
-      <p class="subtitle">Comment pouvons-nous vous aider ?</p>
+      <div class="lang-toggle">
+        <button class="lang-btn active" onclick="setLang('fr')">FR</button>
+        <button class="lang-btn" onclick="setLang('en')">EN</button>
+      </div>
+      <h1 id="page-title">Aide &amp; Support</h1>
+      <p class="subtitle" id="page-subtitle">Comment pouvons-nous vous aider ?</p>
     </div>
 
-    <p class="section-title">Questions fr&eacute;quentes</p>
+    <p class="section-title" id="section-faq">Questions fr&eacute;quentes</p>
 
     <!-- FAQ 1 -->
     <div class="faq-card">
       <details>
         <summary>
           <span class="faq-number">1</span>
-          <span class="summary-text">Comment fonctionne l'analyse capillaire ?</span>
+          <span class="summary-text" id="q1">Comment fonctionne l'analyse capillaire ?</span>
         </summary>
-        <div class="faq-answer">
+        <div class="faq-answer" id="a1">
           Follicle utilise l'<strong>intelligence artificielle</strong> pour &eacute;valuer visuellement votre &eacute;tat capillaire. Prenez une photo de face et du sommet du cr&acirc;ne, r&eacute;pondez &agrave; quelques questions, et notre algorithme calcule un score pr&eacute;cis bas&eacute; sur <strong>4 crit&egrave;res</strong> : r&eacute;cession frontale, r&eacute;cession temporale, densit&eacute; et miniaturisation.
         </div>
       </details>
@@ -331,9 +374,9 @@
       <details>
         <summary>
           <span class="faq-number">2</span>
-          <span class="summary-text">Mes donn&eacute;es sont-elles s&eacute;curis&eacute;es ?</span>
+          <span class="summary-text" id="q2">Mes donn&eacute;es sont-elles s&eacute;curis&eacute;es ?</span>
         </summary>
-        <div class="faq-answer">
+        <div class="faq-answer" id="a2">
           Absolument. Par d&eacute;faut, toutes vos donn&eacute;es restent <strong>sur votre appareil</strong>. Si vous cr&eacute;ez un compte, elles sont chiffr&eacute;es et stock&eacute;es sur des serveurs s&eacute;curis&eacute;s en Europe (<strong>Supabase</strong>). Vos photos ne sont jamais partag&eacute;es ni conserv&eacute;es par les services d'analyse.
         </div>
       </details>
@@ -344,9 +387,9 @@
       <details>
         <summary>
           <span class="faq-number">3</span>
-          <span class="summary-text">Qu'est-ce que l'Audit Express vs l'Analyse Approfondie ?</span>
+          <span class="summary-text" id="q3">Qu'est-ce que l'Audit Express vs l'Analyse Approfondie ?</span>
         </summary>
-        <div class="faq-answer">
+        <div class="faq-answer" id="a3">
           L'<strong>Audit Express</strong> (2 min) n&eacute;cessite 1 photo de face + 4 questions rapides. L'<strong>Analyse Approfondie</strong> (PRO) utilise 5 angles de prise de vue cliniques + 16 questions d&eacute;taill&eacute;es pour une &eacute;valuation plus pr&eacute;cise. Les deux calculent un score sur les m&ecirc;mes crit&egrave;res.
         </div>
       </details>
@@ -357,9 +400,9 @@
       <details>
         <summary>
           <span class="faq-number">4</span>
-          <span class="summary-text">Comment fonctionne la simulation de greffe ?</span>
+          <span class="summary-text" id="q4">Comment fonctionne la simulation de greffe ?</span>
         </summary>
-        <div class="faq-answer">
+        <div class="faq-answer" id="a4">
           La simulation analyse votre photo pour d&eacute;terminer votre stade sur l'<strong>&eacute;chelle Norwood-Hamilton</strong>, &eacute;valuer votre candidature &agrave; une greffe, estimer le nombre de greffons n&eacute;cessaires et g&eacute;n&eacute;rer une image de simulation du r&eacute;sultat post-greffe. C'est un outil informatif, <strong>pas un diagnostic m&eacute;dical</strong>.
         </div>
       </details>
@@ -370,9 +413,9 @@
       <details>
         <summary>
           <span class="faq-number">5</span>
-          <span class="summary-text">Puis-je exporter ou supprimer mes donn&eacute;es ?</span>
+          <span class="summary-text" id="q5">Puis-je exporter ou supprimer mes donn&eacute;es ?</span>
         </summary>
-        <div class="faq-answer">
+        <div class="faq-answer" id="a5">
           Oui, conform&eacute;ment au <strong>RGPD</strong>. Allez dans <strong>Param&egrave;tres</strong> (ou Profil &gt; Confidentialit&eacute; &amp; Donn&eacute;es) pour exporter toutes vos donn&eacute;es ou les supprimer d&eacute;finitivement. La suppression est irr&eacute;versible et inclut les donn&eacute;es cloud si vous &ecirc;tes connect&eacute;.
         </div>
       </details>
@@ -383,9 +426,9 @@
       <details>
         <summary>
           <span class="faq-number">6</span>
-          <span class="summary-text">&Agrave; quelle fr&eacute;quence dois-je faire une analyse ?</span>
+          <span class="summary-text" id="q6">&Agrave; quelle fr&eacute;quence dois-je faire une analyse ?</span>
         </summary>
-        <div class="faq-answer">
+        <div class="faq-answer" id="a6">
           Nous recommandons un audit tous les <strong>7 jours</strong> pour un suivi optimal. L'application limite &agrave; 1 audit par jour pour garantir des r&eacute;sultats coh&eacute;rents. Pour la simulation de greffe, la limite est &eacute;galement de 1 par jour.
         </div>
       </details>
@@ -393,24 +436,97 @@
 
     <!-- Contact -->
     <div class="contact-section">
-      <p class="section-title">Nous contacter</p>
+      <p class="section-title" id="section-contact">Nous contacter</p>
       <div class="contact-card">
         <div class="contact-icon">
           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
             <path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/>
           </svg>
         </div>
-        <h3>Une question ?</h3>
+        <h3 id="contact-title">Une question ?</h3>
         <a class="email-link" href="mailto:follicle.app@gmail.com">follicle.app@gmail.com</a>
-        <p class="response-time">Nous r&eacute;pondons sous 24-48h</p>
+        <p class="response-time" id="contact-delay">Nous r&eacute;pondons sous 24-48h</p>
       </div>
     </div>
 
     <div class="footer">
-      <p>&copy; 2026 Pidotis &mdash; Follicle v0.0.4</p>
-      <a href="privacy.html">Politique de confidentialit&eacute; &rarr;</a>
+      <p>&copy; 2026 Pidotis &mdash; Follicle v1.0.0</p>
+      <a href="privacy.html" id="footer-link">Politique de confidentialit&eacute; &rarr;</a>
     </div>
 
   </div>
+
+  <script>
+    const translations = {
+      fr: {
+        'page-title': 'Aide & Support',
+        'page-subtitle': 'Comment pouvons-nous vous aider ?',
+        'section-faq': 'Questions fr\u00e9quentes',
+        'q1': 'Comment fonctionne l\u2019analyse capillaire ?',
+        'a1': 'Follicle utilise l\u2019<strong>intelligence artificielle</strong> pour \u00e9valuer visuellement votre \u00e9tat capillaire. Prenez une photo de face et du sommet du cr\u00e2ne, r\u00e9pondez \u00e0 quelques questions, et notre algorithme calcule un score pr\u00e9cis bas\u00e9 sur <strong>4 crit\u00e8res</strong> : r\u00e9cession frontale, r\u00e9cession temporale, densit\u00e9 et miniaturisation.',
+        'q2': 'Mes donn\u00e9es sont-elles s\u00e9curis\u00e9es ?',
+        'a2': 'Absolument. Par d\u00e9faut, toutes vos donn\u00e9es restent <strong>sur votre appareil</strong>. Si vous cr\u00e9ez un compte, elles sont chiffr\u00e9es et stock\u00e9es sur des serveurs s\u00e9curis\u00e9s en Europe (<strong>Supabase</strong>). Vos photos ne sont jamais partag\u00e9es ni conserv\u00e9es par les services d\u2019analyse.',
+        'q3': 'Qu\u2019est-ce que l\u2019Audit Express vs l\u2019Analyse Approfondie ?',
+        'a3': 'L\u2019<strong>Audit Express</strong> (2 min) n\u00e9cessite 1 photo de face + 4 questions rapides. L\u2019<strong>Analyse Approfondie</strong> (PRO) utilise 5 angles de prise de vue cliniques + 16 questions d\u00e9taill\u00e9es pour une \u00e9valuation plus pr\u00e9cise. Les deux calculent un score sur les m\u00eames crit\u00e8res.',
+        'q4': 'Comment fonctionne la simulation de greffe ?',
+        'a4': 'La simulation analyse votre photo pour d\u00e9terminer votre stade sur l\u2019<strong>\u00e9chelle Norwood-Hamilton</strong>, \u00e9valuer votre candidature \u00e0 une greffe, estimer le nombre de greffons n\u00e9cessaires et g\u00e9n\u00e9rer une image de simulation du r\u00e9sultat post-greffe. C\u2019est un outil informatif, <strong>pas un diagnostic m\u00e9dical</strong>.',
+        'q5': 'Puis-je exporter ou supprimer mes donn\u00e9es ?',
+        'a5': 'Oui, conform\u00e9ment au <strong>RGPD</strong>. Allez dans <strong>Param\u00e8tres</strong> (ou Profil > Confidentialit\u00e9 & Donn\u00e9es) pour exporter toutes vos donn\u00e9es ou les supprimer d\u00e9finitivement. La suppression est irr\u00e9versible et inclut les donn\u00e9es cloud si vous \u00eates connect\u00e9.',
+        'q6': '\u00c0 quelle fr\u00e9quence dois-je faire une analyse ?',
+        'a6': 'Nous recommandons un audit tous les <strong>7 jours</strong> pour un suivi optimal. L\u2019application limite \u00e0 1 audit par jour pour garantir des r\u00e9sultats coh\u00e9rents. Pour la simulation de greffe, la limite est \u00e9galement de 1 par jour.',
+        'section-contact': 'Nous contacter',
+        'contact-title': 'Une question ?',
+        'contact-delay': 'Nous r\u00e9pondons sous 24-48h',
+        'footer-link': 'Politique de confidentialit\u00e9 \u2192',
+      },
+      en: {
+        'page-title': 'Help & Support',
+        'page-subtitle': 'How can we help you?',
+        'section-faq': 'Frequently asked questions',
+        'q1': 'How does the hair analysis work?',
+        'a1': 'Follicle uses <strong>artificial intelligence</strong> to visually assess your hair condition. Take a photo of your face and the top of your head, answer a few questions, and our algorithm calculates a precise score based on <strong>4 criteria</strong>: frontal recession, temporal recession, density and miniaturization.',
+        'q2': 'Is my data secure?',
+        'a2': 'Absolutely. By default, all your data stays <strong>on your device</strong>. If you create an account, it is encrypted and stored on secure servers in Europe (<strong>Supabase</strong>). Your photos are never shared or retained by analysis services.',
+        'q3': 'What is Express Audit vs In-Depth Analysis?',
+        'a3': 'The <strong>Express Audit</strong> (2 min) requires 1 face photo + 4 quick questions. The <strong>In-Depth Analysis</strong> (PRO) uses 5 clinical photo angles + 16 detailed questions for a more precise evaluation. Both calculate a score based on the same criteria.',
+        'q4': 'How does the transplant simulation work?',
+        'a4': 'The simulation analyzes your photo to determine your stage on the <strong>Norwood-Hamilton scale</strong>, assess your transplant candidacy, estimate the number of grafts needed and generate a post-transplant simulation image. It is an informational tool, <strong>not a medical diagnosis</strong>.',
+        'q5': 'Can I export or delete my data?',
+        'a5': 'Yes, in compliance with the <strong>GDPR</strong>. Go to <strong>Settings</strong> (or Profile > Privacy & Data) to export all your data or permanently delete it. Deletion is irreversible and includes cloud data if you are signed in.',
+        'q6': 'How often should I run an analysis?',
+        'a6': 'We recommend an audit every <strong>7 days</strong> for optimal tracking. The app limits to 1 audit per day to ensure consistent results. For transplant simulation, the limit is also 1 per day.',
+        'section-contact': 'Contact us',
+        'contact-title': 'Have a question?',
+        'contact-delay': 'We respond within 24-48h',
+        'footer-link': 'Privacy Policy \u2192',
+      },
+    };
+
+    let currentLang = 'fr';
+
+    function setLang(lang) {
+      currentLang = lang;
+      document.documentElement.lang = lang;
+      document.querySelectorAll('.lang-btn').forEach(btn => {
+        btn.classList.toggle('active', btn.textContent === lang.toUpperCase());
+      });
+
+      const t = translations[lang];
+      Object.keys(t).forEach(id => {
+        const el = document.getElementById(id);
+        if (el) el.innerHTML = t[id];
+      });
+
+      document.title = lang === 'fr'
+        ? 'Aide & Support \u2014 Follicle'
+        : 'Help & Support \u2014 Follicle';
+    }
+
+    // Auto-detect browser language: default to EN for any non-French browser
+    (function() {
+      var browserLang = (navigator.language || navigator.userLanguage || 'fr').substring(0, 2).toLowerCase();
+      if (browserLang !== 'fr') setLang('en');
+    })();
+  </script>
 </body>
 </html>
