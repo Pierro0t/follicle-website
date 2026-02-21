@@ -64,43 +64,40 @@
       color: #71717a;
     }
 
-    /* Language toggle */
-    .lang-toggle {
+    /* Language switcher — fixed top-right */
+    .lang-switcher {
+      position: fixed;
+      top: 20px;
+      right: 20px;
       display: flex;
-      justify-content: center;
-      gap: 0;
-      margin-bottom: 12px;
+      gap: 8px;
+      z-index: 100;
     }
 
     .lang-btn {
-      padding: 6px 16px;
-      font-size: 13px;
-      font-weight: 600;
-      border: 1px solid #27272a;
-      background: transparent;
+      padding: 8px 16px;
+      border: 1px solid rgba(113, 113, 122, 0.3);
+      background: rgba(23, 23, 23, 0.9);
       color: #71717a;
+      border-radius: 8px;
       cursor: pointer;
-      transition: all 0.2s ease;
-      letter-spacing: 0.5px;
+      font-size: 14px;
+      font-weight: 500;
+      transition: all 0.3s ease;
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
     }
 
-    .lang-btn:first-child {
-      border-radius: 8px 0 0 8px;
-      border-right: none;
-    }
-
-    .lang-btn:last-child {
-      border-radius: 0 8px 8px 0;
+    .lang-btn:hover {
+      border-color: rgba(52, 211, 153, 0.5);
+      color: #fafafa;
     }
 
     .lang-btn.active {
-      background: rgba(52, 211, 153, 0.12);
-      color: #34d399;
-      border-color: rgba(52, 211, 153, 0.3);
-    }
-
-    .lang-btn.active + .lang-btn {
-      border-left-color: rgba(52, 211, 153, 0.3);
+      background: linear-gradient(135deg, #34d399 0%, #10b981 100%);
+      border-color: transparent;
+      color: #022c22;
+      font-weight: 600;
     }
 
     /* Cards */
@@ -254,12 +251,13 @@
 <body>
   <div class="container">
 
+    <div class="lang-switcher">
+      <button class="lang-btn active" id="btn-fr" onclick="setLang('fr')">FR</button>
+      <button class="lang-btn" id="btn-en" onclick="setLang('en')">EN</button>
+    </div>
+
     <div class="header">
       <div class="logo">Follicle<span class="logo-dot"></span></div>
-      <div class="lang-toggle">
-        <button class="lang-btn active" onclick="setLang('fr')">FR</button>
-        <button class="lang-btn" onclick="setLang('en')">EN</button>
-      </div>
       <h1 id="page-title">Politique de confidentialit&eacute;</h1>
       <p class="date" id="page-date">Date d'effet : 16 f&eacute;vrier 2026</p>
     </div>
@@ -467,10 +465,10 @@
 
     function setLang(lang) {
       currentLang = lang;
+      localStorage.setItem('follicle-lang', lang);
       document.documentElement.lang = lang;
-      document.querySelectorAll('.lang-btn').forEach(btn => {
-        btn.classList.toggle('active', btn.textContent === lang.toUpperCase());
-      });
+      document.getElementById('btn-fr').classList.toggle('active', lang === 'fr');
+      document.getElementById('btn-en').classList.toggle('active', lang === 'en');
 
       const t = translations[lang];
       Object.keys(t).forEach(id => {
@@ -490,8 +488,10 @@
         : 'Privacy Policy \u2014 Follicle';
     }
 
-    // Auto-detect browser language: default to EN for any non-French browser
+    // Restore saved lang, or auto-detect from browser
     (function() {
+      var saved = localStorage.getItem('follicle-lang');
+      if (saved) { setLang(saved); return; }
       var browserLang = (navigator.language || navigator.userLanguage || 'fr').substring(0, 2).toLowerCase();
       if (browserLang !== 'fr') setLang('en');
     })();
