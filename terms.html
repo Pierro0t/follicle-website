@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Terms of Service &mdash; Follicle</title>
+  <style>
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      background-color: #0a0a0a;
+      color: #fafafa;
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+      line-height: 1.7;
+      -webkit-font-smoothing: antialiased;
+    }
+    .container { max-width: 720px; margin: 0 auto; padding: 40px 20px 60px; }
+    .header { text-align: center; margin-bottom: 48px; }
+    .logo { font-size: 28px; font-weight: 700; color: #34d399; letter-spacing: -0.5px; margin-bottom: 8px; }
+    .header h1 { font-size: 22px; font-weight: 600; color: #fafafa; margin-bottom: 8px; }
+    .header .subtitle { font-size: 14px; color: #71717a; }
+    .lang-toggle {
+      position: fixed; top: 16px; right: 16px;
+      display: flex; gap: 6px; z-index: 100;
+      background: rgba(23,23,23,0.85);
+      backdrop-filter: blur(8px);
+      border: 1px solid #27272a;
+      border-radius: 10px; padding: 6px 8px;
+    }
+    .lang-btn {
+      background: none; border: none; color: #71717a;
+      font-size: 13px; font-weight: 500; cursor: pointer;
+      padding: 4px 10px; border-radius: 6px; transition: all 0.15s;
+    }
+    .lang-btn.active { background: #34d39920; color: #34d399; }
+    .lang-btn:hover:not(.active) { color: #fafafa; }
+    section { margin-bottom: 36px; }
+    h2 { font-size: 17px; font-weight: 600; color: #34d399; margin-bottom: 12px; padding-bottom: 8px; border-bottom: 1px solid #1f1f1f; }
+    p { color: #a1a1aa; font-size: 15px; margin-bottom: 10px; }
+    ul { padding-left: 20px; margin-bottom: 10px; }
+    li { color: #a1a1aa; font-size: 15px; margin-bottom: 6px; }
+    strong { color: #fafafa; }
+    a { color: #34d399; text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    .footer { text-align: center; margin-top: 48px; padding-top: 24px; border-top: 1px solid #1f1f1f; font-size: 13px; color: #3f3f46; }
+    .footer a { color: #71717a; }
+    .footer a:hover { color: #34d399; }
+    [data-lang] { display: none; }
+    [data-lang].visible { display: block; }
+  </style>
+</head>
+<body>
+
+<div class="lang-toggle">
+  <button class="lang-btn active" onclick="setLang('en')" id="btn-en">EN</button>
+  <button class="lang-btn" onclick="setLang('fr')" id="btn-fr">FR</button>
+</div>
+
+<div class="container">
+  <div class="header">
+    <div class="logo">Follicle</div>
+    <h1 data-en="Terms of Service" data-fr="Conditions d'utilisation"></h1>
+    <p class="subtitle" data-en="Last updated: March 2026" data-fr="Dernière mise à jour : Mars 2026"></p>
+  </div>
+
+  <!-- ENGLISH -->
+  <div data-lang="en">
+    <section>
+      <h2>1. Acceptance of Terms</h2>
+      <p>By downloading, installing, or using the <strong>Follicle</strong> iOS application ("App"), you agree to be bound by these Terms of Service. If you do not agree, do not use the App.</p>
+    </section>
+    <section>
+      <h2>2. Description of the App</h2>
+      <p>Follicle is a hair health analysis application that uses AI-powered photo analysis and questionnaires to assess hair condition, track evolution over time, and provide personalized recommendations.</p>
+      <p><strong>Important:</strong> Follicle is for informational purposes only. It is not a medical device and does not provide medical diagnoses. Always consult a qualified dermatologist or healthcare professional for medical advice.</p>
+    </section>
+    <section>
+      <h2>3. Google Sign-In</h2>
+      <p>Follicle offers the option to sign in using your Google account via OAuth 2.0. By using Google Sign-In, you agree to Google's <a href="https://policies.google.com/terms" target="_blank">Terms of Service</a> and <a href="https://policies.google.com/privacy" target="_blank">Privacy Policy</a>.</p>
+      <p>Follicle only requests access to your basic profile information (name and email address) to create your account. We do not access your Google Drive, Gmail, or any other Google services.</p>
+    </section>
+    <section>
+      <h2>4. User Account</h2>
+      <p>You may use Follicle without an account (local mode). If you choose to create an account, you are responsible for maintaining the security of your credentials. You may delete your account and all associated data at any time from the app settings.</p>
+    </section>
+    <section>
+      <h2>5. In-App Purchases</h2>
+      <p>Follicle offers a one-time lifetime purchase to unlock premium features. All purchases are processed through Apple's App Store and are subject to Apple's <a href="https://www.apple.com/legal/internet-services/itunes/dev/stdeula/" target="_blank">Standard End User License Agreement (EULA)</a>.</p>
+      <p>Purchases are non-refundable except as required by applicable law or Apple's refund policy.</p>
+    </section>
+    <section>
+      <h2>6. Intellectual Property</h2>
+      <p>All content, design, and code within the Follicle app are the property of Pidotis. You may not copy, modify, distribute, or reverse-engineer any part of the App without prior written permission.</p>
+    </section>
+    <section>
+      <h2>7. Limitation of Liability</h2>
+      <p>Follicle is provided "as is" without warranties of any kind. We are not liable for any damages arising from the use of the App, including reliance on analysis results for medical decisions.</p>
+    </section>
+    <section>
+      <h2>8. Privacy</h2>
+      <p>Your privacy matters to us. Please review our <a href="privacy.html">Privacy Policy</a> to understand how we collect, use, and protect your data.</p>
+    </section>
+    <section>
+      <h2>9. Changes to Terms</h2>
+      <p>We may update these Terms from time to time. Continued use of the App after changes constitutes acceptance of the new Terms.</p>
+    </section>
+    <section>
+      <h2>10. Contact</h2>
+      <p>For questions about these Terms, contact us at <a href="mailto:follicle.app@gmail.com">follicle.app@gmail.com</a>.</p>
+    </section>
+  </div>
+
+  <!-- FRENCH -->
+  <div data-lang="fr">
+    <section>
+      <h2>1. Acceptation des conditions</h2>
+      <p>En téléchargeant, installant ou utilisant l'application iOS <strong>Follicle</strong> ("l'Application"), vous acceptez d'être lié par ces Conditions d'utilisation. Si vous n'acceptez pas, veuillez ne pas utiliser l'Application.</p>
+    </section>
+    <section>
+      <h2>2. Description de l'Application</h2>
+      <p>Follicle est une application d'analyse de santé capillaire qui utilise l'analyse photo par IA et des questionnaires pour évaluer l'état des cheveux, suivre leur évolution dans le temps et fournir des recommandations personnalisées.</p>
+      <p><strong>Important :</strong> Follicle est fourni à titre informatif uniquement. Ce n'est pas un dispositif médical et ne fournit pas de diagnostics médicaux. Consultez toujours un dermatologue ou un professionnel de santé qualifié pour tout avis médical.</p>
+    </section>
+    <section>
+      <h2>3. Connexion avec Google</h2>
+      <p>Follicle propose la connexion via votre compte Google via OAuth 2.0. En utilisant la connexion Google, vous acceptez les <a href="https://policies.google.com/terms" target="_blank">Conditions d'utilisation</a> et la <a href="https://policies.google.com/privacy" target="_blank">Politique de confidentialité</a> de Google.</p>
+      <p>Follicle demande uniquement l'accès à vos informations de profil de base (nom et adresse e-mail) pour créer votre compte. Nous n'accédons pas à votre Google Drive, Gmail ou tout autre service Google.</p>
+    </section>
+    <section>
+      <h2>4. Compte utilisateur</h2>
+      <p>Vous pouvez utiliser Follicle sans compte (mode local). Si vous créez un compte, vous êtes responsable de la sécurité de vos identifiants. Vous pouvez supprimer votre compte et toutes les données associées à tout moment depuis les paramètres de l'application.</p>
+    </section>
+    <section>
+      <h2>5. Achats intégrés</h2>
+      <p>Follicle propose un achat unique à vie pour débloquer les fonctionnalités premium. Tous les achats sont traités via l'App Store d'Apple et sont soumis au <a href="https://www.apple.com/legal/internet-services/itunes/dev/stdeula/" target="_blank">Contrat de licence utilisateur final standard d'Apple (CLUF)</a>.</p>
+      <p>Les achats ne sont pas remboursables, sauf dans les cas prévus par la loi applicable ou la politique de remboursement d'Apple.</p>
+    </section>
+    <section>
+      <h2>6. Propriété intellectuelle</h2>
+      <p>Tout le contenu, le design et le code de l'application Follicle sont la propriété de Pidotis. Vous ne pouvez pas copier, modifier, distribuer ou rétro-ingénier toute partie de l'Application sans autorisation écrite préalable.</p>
+    </section>
+    <section>
+      <h2>7. Limitation de responsabilité</h2>
+      <p>Follicle est fourni "tel quel" sans garantie d'aucune sorte. Nous ne sommes pas responsables des dommages résultant de l'utilisation de l'Application, y compris le recours aux résultats d'analyse pour des décisions médicales.</p>
+    </section>
+    <section>
+      <h2>8. Confidentialité</h2>
+      <p>Votre vie privée est importante pour nous. Consultez notre <a href="privacy.html">Politique de confidentialité</a> pour comprendre comment nous collectons, utilisons et protégeons vos données.</p>
+    </section>
+    <section>
+      <h2>9. Modifications des conditions</h2>
+      <p>Nous pouvons mettre à jour ces Conditions périodiquement. La poursuite de l'utilisation de l'Application après les modifications constitue l'acceptation des nouvelles Conditions.</p>
+    </section>
+    <section>
+      <h2>10. Contact</h2>
+      <p>Pour toute question concernant ces Conditions, contactez-nous à <a href="mailto:follicle.app@gmail.com">follicle.app@gmail.com</a>.</p>
+    </section>
+  </div>
+
+  <div class="footer">
+    <p>&copy; 2026 Follicle &middot; <a href="index.html">Home</a> &middot; <a href="privacy.html">Privacy Policy</a> &middot; <a href="support.html">Support</a></p>
+  </div>
+</div>
+
+<script>
+  const STORAGE_KEY = 'follicle-lang';
+
+  function setLang(lang) {
+    localStorage.setItem(STORAGE_KEY, lang);
+    document.querySelectorAll('[data-lang]').forEach(el => {
+      el.classList.toggle('visible', el.dataset.lang === lang);
+    });
+    document.querySelectorAll('.lang-btn').forEach(btn => {
+      btn.classList.toggle('active', btn.id === 'btn-' + lang);
+    });
+    document.querySelectorAll('[data-en]').forEach(el => {
+      el.textContent = lang === 'fr' ? el.dataset.fr : el.dataset.en;
+    });
+  }
+
+  (function init() {
+    const saved = localStorage.getItem(STORAGE_KEY);
+    const sys = navigator.language?.startsWith('fr') ? 'fr' : 'en';
+    setLang(saved || sys);
+  })();
+</script>
+</body>
+</html>
