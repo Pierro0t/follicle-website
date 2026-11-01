@@ -246,6 +246,9 @@
         font-size: 16px;
       }
     }
+
+    .card h3:first-child { margin-top: 0; }
+    sup { font-size: 0.7em; }
   </style>
 </head>
 <body>
@@ -256,244 +259,266 @@
       <button class="lang-btn" id="btn-en" onclick="setLang('en')">EN</button>
     </div>
 
-    <div class="header">
-      <div class="logo">Follicle<span class="logo-dot"></span></div>
-      <h1 id="page-title">Politique de confidentialit&eacute;</h1>
-      <p class="date" id="page-date">Date d'effet : 16 f&eacute;vrier 2026</p>
+    <!-- ===================== FRANÇAIS ===================== -->
+    <div data-lang="fr" lang="fr">
+      <div class="header">
+        <div class="logo">Follicle<span class="logo-dot"></span></div>
+        <h1>Politique de confidentialit&eacute;</h1>
+        <p class="date">Version du 1<sup>er</sup> novembre 2026 &middot; pour Follicle 1.3, la version actuellement sur l'App Store</p>
+      </div>
+
+      <div class="card">
+        <h2><span class="section-number">1</span> En bref</h2>
+        <ul>
+          <li>Vos scans, vos photos et vos r&eacute;ponses sont enregistr&eacute;s sur votre iPhone. Avec un compte, ils sont aussi sauvegard&eacute;s sur nos serveurs, en Europe.</li>
+          <li>Pour calculer votre score, vos photos sont analys&eacute;es par l'IA d'<strong>OpenAI</strong>, aux &Eacute;tats-Unis.</li>
+          <li>Des statistiques d'utilisation partent chez <strong>PostHog</strong>, en Europe. Cette version n'a pas de r&eacute;glage pour les couper : vous pouvez nous demander de les effacer.</li>
+          <li>Aucune publicit&eacute;, aucune revente de donn&eacute;es, aucun suivi publicitaire.</li>
+        </ul>
+      </div>
+
+      <div class="card">
+        <h2><span class="section-number">2</span> Qui est responsable</h2>
+        <p>Follicle est &eacute;dit&eacute;e par Pidotis, responsable du traitement de vos donn&eacute;es. Contact : <a href="mailto:follicle.app@gmail.com">follicle.app@gmail.com</a>.</p>
+        <p>Follicle est un outil de suivi. Il ne remplace pas l'avis d'un m&eacute;decin.</p>
+      </div>
+
+      <div class="card">
+        <h2><span class="section-number">3</span> Les donn&eacute;es</h2>
+        <ul>
+          <li>Les photos de votre cuir chevelu (face, sommet, c&ocirc;t&eacute;s, arri&egrave;re) et le trac&eacute; de votre ligne frontale.</li>
+          <li>Vos r&eacute;ponses aux questionnaires, dont des <strong>donn&eacute;es de sant&eacute;</strong> : ant&eacute;c&eacute;dents familiaux, chute observ&eacute;e, stress, sommeil, m&eacute;dicaments, &eacute;tat du cuir chevelu, habitudes.</li>
+          <li>Vos scores, les notes donn&eacute;es par l'IA, votre historique et vos simulations de greffe.</li>
+          <li>Votre profil : tranche d'&acirc;ge, date de naissance et sexe si vous les indiquez, pr&eacute;nom ; avec un compte, votre e-mail et votre nom.</li>
+          <li>Des donn&eacute;es d'utilisation et techniques, d&eacute;taill&eacute;es au point 5.</li>
+          <li>Le statut de vos achats Follicle Pro.</li>
+        </ul>
+      </div>
+
+      <div class="card">
+        <h2><span class="section-number">4</span> Pourquoi</h2>
+        <ul>
+          <li>Vous fournir le service que vous demandez : scans, score, suivi, conseils et simulation. Vos donn&eacute;es de sant&eacute; ne servent qu'&agrave; cela.</li>
+          <li>Sauvegarder vos donn&eacute;es sur votre compte, quand vous en cr&eacute;ez un.</li>
+          <li>Mesurer l'utilisation de l'app et corriger ses erreurs, pour l'am&eacute;liorer. Vous pouvez vous y opposer (point 8).</li>
+          <li>G&eacute;rer vos achats.</li>
+        </ul>
+      </div>
+
+      <div class="card">
+        <h2><span class="section-number">5</span> O&ugrave; vont les donn&eacute;es</h2>
+
+        <h3>Sur votre iPhone</h3>
+        <p>Tout ce que vous saisissez est enregistr&eacute; dans l'app, sur votre iPhone. Comme pour toute app, ces donn&eacute;es peuvent figurer dans la sauvegarde iCloud de votre iPhone si vous l'avez activ&eacute;e.</p>
+
+        <h3>OpenAI (analyse par IA), aux &Eacute;tats-Unis</h3>
+        <p>Chaque photo que vous prenez est d'abord v&eacute;rifi&eacute;e par l'IA (est-elle exploitable ?). La photo de face de chaque scan est ensuite not&eacute;e par l'IA, et peut servir &agrave; tracer votre ligne frontale. Si vous &eacute;crivez le nom d'un &laquo; autre m&eacute;dicament &raquo;, ce nom est aussi envoy&eacute;. Pour une simulation de greffe, la photo que vous choisissez est envoy&eacute;e.</p>
+        <p>Avec un compte, ces envois passent par nos serveurs, en Europe, puis vont chez OpenAI. Sans compte, ils partent directement de votre iPhone vers OpenAI. Dans les deux cas, OpenAI les garde au plus 30 jours pour lutter contre les abus, puis les efface, et ne s'en sert pas pour entra&icirc;ner ses mod&egrave;les. Jusqu'au 1<sup>er</sup> novembre 2026, une partie de ces envois &eacute;tait partag&eacute;e avec OpenAI pour am&eacute;liorer ses mod&egrave;les, par un r&eacute;glage de notre compte OpenAI ; ce partage est d&eacute;sactiv&eacute; pour Follicle. L'IA rend des notes ; votre score est calcul&eacute; sur votre iPhone.</p>
+        <p>Dans cette version, l'analyse par IA fait partie du scan : prendre une photo pour un scan, c'est demander cette analyse. La prochaine version vous demandera votre accord avant tout envoi, et proposera des scans sans IA.</p>
+
+        <h3>Supabase (h&eacute;bergement), avec un compte</h3>
+        <p>Votre compte (e-mail, nom), votre profil (tranche d'&acirc;ge, date de naissance et sexe si vous les avez indiqu&eacute;s, r&eacute;ponses aux questionnaires), vos scans (r&eacute;ponses, notes de l'IA, scores) et leurs photos, sur des serveurs en Europe. Les photos sont rang&eacute;es dans des espaces priv&eacute;s, accessibles &agrave; votre seul compte. Nous gardons aussi un compteur de vos demandes &agrave; l'IA (date et type de demande, sans contenu), pour limiter les abus.</p>
+
+        <h3>PostHog (statistiques d'utilisation), en Europe</h3>
+        <p>Les &eacute;crans ouverts et les &eacute;tapes franchies (par exemple un scan commenc&eacute; ou termin&eacute;, avec son score), l'ouverture et la fermeture de l'app, les erreurs de l'app, le mod&egrave;le de votre iPhone, la version de son syst&egrave;me, de l'app et sa langue, et un identifiant al&eacute;atoire gard&eacute; sur votre iPhone. Si vous vous connectez, cet identifiant est reli&eacute; &agrave; votre compte, avec votre e-mail.</p>
+        <p>Ni vos photos ni vos r&eacute;ponses aux questionnaires n'y partent. Depuis le 1<sup>er</sup> novembre 2026, PostHog n'en d&eacute;duit plus votre pays ni votre ville ; avant, il les d&eacute;duisait de votre adresse IP. Ces donn&eacute;es sont gard&eacute;es tant qu'elles servent &agrave; mesurer l'utilisation de l'app, ou jusqu'&agrave; ce que vous nous demandiez de les effacer.</p>
+
+        <h3>RevenueCat (achats), aux &Eacute;tats-Unis</h3>
+        <p>Pour g&eacute;rer vos achats Follicle Pro : un identifiant (anonyme sans compte, celui de votre compte sinon) et le statut de vos achats. Aucune donn&eacute;e bancaire : Apple g&egrave;re le paiement.</p>
+
+        <h3>Apple et Google (connexion)</h3>
+        <p>Si vous vous connectez avec Apple ou Google, nous recevons votre nom et votre e-mail (ou l'adresse masqu&eacute;e d'Apple).</p>
+
+        <p>OpenAI et RevenueCat sont aux &Eacute;tats-Unis : ces transferts hors de l'Union europ&eacute;enne sont encadr&eacute;s par les clauses contractuelles types de la Commission europ&eacute;enne.</p>
+      </div>
+
+      <div class="card">
+        <h2><span class="section-number">6</span> Combien de temps</h2>
+        <ul>
+          <li><strong>Sur votre iPhone</strong> : jusqu'&agrave; ce que vous supprimiez vos donn&eacute;es dans l'app, ou l'app.</li>
+          <li><strong>Sur votre compte</strong> : jusqu'&agrave; ce que vous les supprimiez (point 7).</li>
+          <li><strong>OpenAI</strong> : 30 jours au plus.</li>
+          <li><strong>PostHog</strong> : voir le point 5.</li>
+          <li><strong>Achats</strong> : RevenueCat et Apple gardent l'historique des achats selon leurs obligations l&eacute;gales.</li>
+        </ul>
+      </div>
+
+      <div class="card">
+        <h2><span class="section-number">7</span> Supprimer vos donn&eacute;es</h2>
+        <p>Dans l'app, Profil &rsaquo; Param&egrave;tres &rsaquo; <strong>Supprimer toutes les donn&eacute;es</strong> efface les donn&eacute;es de votre iPhone et, si vous &ecirc;tes connect&eacute;, vos scans, vos photos et vos r&eacute;ponses sur nos serveurs, puis vous d&eacute;connecte.</p>
+        <p>Dans cette version, ce bouton ne supprime pas votre compte lui-m&ecirc;me (e-mail et nom), ni vos statistiques chez PostHog. Pour cela, &eacute;crivez &agrave; <a href="mailto:follicle.app@gmail.com">follicle.app@gmail.com</a> depuis l'adresse de votre compte : nous supprimons le compte et ces statistiques, et vous le confirmons. La prochaine version supprimera le compte directement depuis l'app.</p>
+        <p>Un abonnement se r&eacute;silie &agrave; part, dans R&eacute;glages &rsaquo; votre nom &rsaquo; Abonnements.</p>
+      </div>
+
+      <div class="card">
+        <h2><span class="section-number">8</span> Vos droits</h2>
+        <ul>
+          <li><strong>Acc&egrave;s et portabilit&eacute;</strong> : Profil &rsaquo; Param&egrave;tres &rsaquo; Exporter mes donn&eacute;es, un texte avec votre profil, vos r&eacute;ponses et l'historique de vos scores. Les photos n'y sont pas ; demandez-les-nous si vous les voulez.</li>
+          <li><strong>Rectification</strong> : modifiez vos informations dans votre Profil.</li>
+          <li><strong>Effacement</strong> : voir le point 7.</li>
+          <li><strong>Opposition aux statistiques</strong> : &eacute;crivez-nous ; nous effa&ccedil;ons vos statistiques chez PostHog. La prochaine version aura un r&eacute;glage pour les couper.</li>
+          <li><strong>R&eacute;clamation</strong> : aupr&egrave;s de la CNIL (<a href="https://www.cnil.fr">cnil.fr</a>).</li>
+        </ul>
+        <p>Nous r&eacute;pondons &agrave; toute demande dans un d&eacute;lai d'un mois au plus.</p>
+      </div>
+
+      <div class="card">
+        <h2><span class="section-number">9</span> Publicit&eacute; et suivi</h2>
+        <p>Follicle n'affiche aucune publicit&eacute;, ne vend aucune donn&eacute;e, ne travaille avec aucun courtier en donn&eacute;es et ne vous suit pas d'une app &agrave; l'autre.</p>
+      </div>
+
+      <div class="card">
+        <h2><span class="section-number">10</span> Contact et mises &agrave; jour</h2>
+        <p>Une question sur vos donn&eacute;es : <a href="mailto:follicle.app@gmail.com">follicle.app@gmail.com</a>. Si cette politique change, la nouvelle version est publi&eacute;e ici, avec sa date.</p>
+      </div>
+
+      <div class="footer">
+        <p>&copy; 2026 Pidotis &mdash; Follicle</p>
+        <a href="support.html">Aide &amp; Support &rarr;</a>
+      </div>
     </div>
 
-    <!-- 1. Introduction -->
-    <div class="card">
-      <h2><span class="section-number">1</span> Introduction</h2>
-      <p id="s1-text">Follicle est une application d'analyse capillaire. Nous respectons votre vie priv&eacute;e et vos donn&eacute;es personnelles. Cette politique explique comment nous collectons, utilisons et prot&eacute;geons vos informations.</p>
-    </div>
+    <!-- ===================== ENGLISH ===================== -->
+    <div data-lang="en" lang="en">
+      <div class="header">
+        <div class="logo">Follicle<span class="logo-dot"></span></div>
+        <h1>Privacy Policy</h1>
+        <p class="date">Version of November 1, 2026 &middot; for Follicle 1.3, the version currently on the App Store</p>
+      </div>
 
-    <!-- 2. Collecte des données -->
-    <div class="card">
-      <h2><span class="section-number">2</span> <span id="s2-title">Collecte des donn&eacute;es</span></h2>
-      <p id="s2-intro">Donn&eacute;es collect&eacute;es :</p>
-      <ul id="s2-list">
-        <li>Photos capillaires (visage, vertex, tempes, occiput)</li>
-        <li>R&eacute;ponses aux questionnaires (profil de base, express, approfondi)</li>
-        <li>Score d'analyse et historique</li>
-        <li>Donn&eacute;es de profil (nom, email si connect&eacute;)</li>
-        <li>Pr&eacute;f&eacute;rences d'application</li>
-      </ul>
-      <div class="divider"></div>
-      <p id="s2-outro">Toutes ces donn&eacute;es sont cr&eacute;&eacute;es par vous et pour vous.</p>
-    </div>
+      <div class="card">
+        <h2><span class="section-number">1</span> In short</h2>
+        <ul>
+          <li>Your scans, photos and answers are saved on your iPhone. With an account, they are also backed up on our servers, in Europe.</li>
+          <li>To compute your score, your photos are analysed by <strong>OpenAI</strong>'s AI, in the United States.</li>
+          <li>Usage statistics are sent to <strong>PostHog</strong>, in Europe. This version has no setting to turn them off: you can ask us to erase them.</li>
+          <li>No advertising, no data selling, no ad tracking.</li>
+        </ul>
+      </div>
 
-    <!-- 3. Utilisation des données -->
-    <div class="card">
-      <h2><span class="section-number">3</span> <span id="s3-title">Utilisation des donn&eacute;es</span></h2>
-      <p id="s3-intro">Vos donn&eacute;es sont utilis&eacute;es exclusivement pour :</p>
-      <ul id="s3-list">
-        <li>G&eacute;n&eacute;rer votre analyse capillaire personnalis&eacute;e</li>
-        <li>Calculer votre score et suivre votre &eacute;volution</li>
-        <li>Fournir des recommandations adapt&eacute;es &agrave; votre profil</li>
-        <li>Permettre la simulation de greffe capillaire</li>
-        <li>Synchroniser vos donn&eacute;es entre appareils (si connect&eacute;)</li>
-      </ul>
-    </div>
+      <div class="card">
+        <h2><span class="section-number">2</span> Who is responsible</h2>
+        <p>Follicle is published by Pidotis, the controller of your data. Contact: <a href="mailto:follicle.app@gmail.com">follicle.app@gmail.com</a>.</p>
+        <p>Follicle is a tracking tool. It does not replace a doctor's advice.</p>
+      </div>
 
-    <!-- 4. Stockage et sécurité -->
-    <div class="card">
-      <h2><span class="section-number">4</span> <span id="s4-title">Stockage et s&eacute;curit&eacute;</span></h2>
-      <p id="s4-intro">Par d&eacute;faut, toutes vos donn&eacute;es sont stock&eacute;es <span class="highlight">localement sur votre appareil</span>.</p>
-      <p id="s4-sub">Si vous cr&eacute;ez un compte :</p>
-      <ul id="s4-list">
-        <li>Les donn&eacute;es sont <strong>chiffr&eacute;es en transit</strong> (TLS 1.3)</li>
-        <li>Stockage s&eacute;curis&eacute; via <strong>Supabase</strong> (h&eacute;berg&eacute; en Europe)</li>
-        <li>Photos stock&eacute;es dans des buckets priv&eacute;s avec acc&egrave;s contr&ocirc;l&eacute; (RLS)</li>
-        <li>Tokens d'authentification stock&eacute;s dans le <strong>Secure Store</strong> de l'appareil</li>
-      </ul>
-    </div>
+      <div class="card">
+        <h2><span class="section-number">3</span> The data</h2>
+        <ul>
+          <li>Photos of your scalp (front, top, sides, back) and the outline of your hairline.</li>
+          <li>Your questionnaire answers, including <strong>health data</strong>: family history, observed shedding, stress, sleep, medications, scalp condition, habits.</li>
+          <li>Your scores, the ratings given by the AI, your history and your transplant simulations.</li>
+          <li>Your profile: age range, date of birth and sex if you enter them, first name; with an account, your email and name.</li>
+          <li>Usage and technical data, detailed in section 5.</li>
+          <li>The status of your Follicle Pro purchases.</li>
+        </ul>
+      </div>
 
-    <!-- 5. Services tiers -->
-    <div class="card">
-      <h2><span class="section-number">5</span> <span id="s5-title">Services tiers</span></h2>
-      <h3 id="s5-h3a">Service d'analyse IA</h3>
-      <p id="s5-text-a">Vos photos sont envoy&eacute;es &agrave; un service d'intelligence artificielle pour analyse visuelle uniquement. Les images ne sont pas conserv&eacute;es apr&egrave;s traitement. Aucune donn&eacute;e personnelle identifiable n'est envoy&eacute;e.</p>
-      <h3>Supabase</h3>
-      <p id="s5-text-b">H&eacute;bergement des donn&eacute;es cloud (PostgreSQL + Storage).</p>
-      <h3>Apple Sign In / Google OAuth</h3>
-      <p id="s5-text-c">Authentification s&eacute;curis&eacute;e &mdash; nous ne stockons que votre nom et email.</p>
-    </div>
+      <div class="card">
+        <h2><span class="section-number">4</span> Why</h2>
+        <ul>
+          <li>To provide the service you ask for: scans, score, tracking, tips and simulation. Your health data is used for that only.</li>
+          <li>To back up your data to your account, when you create one.</li>
+          <li>To measure app usage and fix its errors, in order to improve it. You can object to this (section 8).</li>
+          <li>To handle your purchases.</li>
+        </ul>
+      </div>
 
-    <!-- 6. Vos droits (RGPD) -->
-    <div class="card">
-      <h2><span class="section-number">6</span> <span id="s6-title">Vos droits (RGPD)</span></h2>
-      <p id="s6-intro">Conform&eacute;ment au RGPD, vous disposez des droits suivants :</p>
-      <ul id="s6-list">
-        <li><strong id="s6-r1">Droit d'acc&egrave;s</strong> &mdash; <span id="s6-d1">Consultez toutes vos donn&eacute;es dans l'application</span></li>
-        <li><strong id="s6-r2">Droit de portabilit&eacute;</strong> &mdash; <span id="s6-d2">Exportez vos donn&eacute;es depuis Param&egrave;tres &gt; Exporter</span></li>
-        <li><strong id="s6-r3">Droit de rectification</strong> &mdash; <span id="s6-d3">Modifiez vos informations depuis votre Profil</span></li>
-        <li><strong id="s6-r4">Droit &agrave; l'effacement</strong> &mdash; <span id="s6-d4">Supprimez toutes vos donn&eacute;es depuis Param&egrave;tres &gt; Supprimer mes donn&eacute;es</span></li>
-        <li><strong id="s6-r5">Droit d'opposition</strong> &mdash; <span id="s6-d5">Vous pouvez utiliser l'application sans compte (mode local)</span></li>
-      </ul>
-    </div>
+      <div class="card">
+        <h2><span class="section-number">5</span> Where the data goes</h2>
 
-    <!-- 7. Cookies et trackers -->
-    <div class="card">
-      <h2><span class="section-number">7</span> <span id="s7-title">Cookies et trackers</span></h2>
-      <p id="s7-text">Follicle n'utilise <span class="highlight">aucun cookie</span>, <span class="highlight">aucun tracker</span>, <span class="highlight">aucun outil d'analytics tiers</span>.</p>
-      <p id="s7-text2">Nous ne collectons aucune donn&eacute;e de navigation ou de comportement.</p>
-    </div>
+        <h3>On your iPhone</h3>
+        <p>Everything you enter is saved in the app, on your iPhone. As with any app, this data may be included in your iPhone's iCloud backup if you turned it on.</p>
 
-    <!-- 8. Contact -->
-    <div class="card">
-      <h2><span class="section-number">8</span> Contact</h2>
-      <p id="s8-intro">Pour toute question relative &agrave; vos donn&eacute;es :</p>
-      <p>Email : <a href="mailto:follicle.app@gmail.com">follicle.app@gmail.com</a></p>
-      <p id="s8-delay">Nous nous engageons &agrave; r&eacute;pondre dans un d&eacute;lai de <span class="highlight">48 heures</span>.</p>
-    </div>
+        <h3>OpenAI (AI analysis), in the United States</h3>
+        <p>Each photo you take is first checked by the AI (is it usable?). The front photo of each scan is then rated by the AI, and may be used to outline your hairline. If you type the name of an "other medication", that name is sent too. For a transplant simulation, the photo you pick is sent.</p>
+        <p>With an account, these go through our servers, in Europe, then to OpenAI. Without an account, they go straight from your iPhone to OpenAI. In both cases, OpenAI keeps them for up to 30 days to fight abuse, then deletes them, and does not use them to train its models. Until November 1, 2026, part of these requests was shared with OpenAI to improve its models, through a setting of our OpenAI account; this sharing is turned off for Follicle. The AI returns ratings; your score is computed on your iPhone.</p>
+        <p>In this version, AI analysis is part of the scan: taking a photo for a scan means asking for this analysis. The next version will ask for your consent before anything is sent, and will offer scans without AI.</p>
 
-    <div class="footer">
-      <p>&copy; 2026 Pidotis &mdash; Follicle v1.0.0</p>
-      <a href="support.html" id="footer-link">Aide &amp; Support &rarr;</a>
+        <h3>Supabase (hosting), with an account</h3>
+        <p>Your account (email, name), your profile (age range, date of birth and sex if you entered them, questionnaire answers), your scans (answers, AI ratings, scores) and their photos, on servers in Europe. Photos are stored in private spaces, accessible to your account only. We also keep a counter of your AI requests (date and type of request, no content), to limit abuse.</p>
+
+        <h3>PostHog (usage statistics), in Europe</h3>
+        <p>Screens opened and steps completed (for example a scan started or finished, with its score), app opens and closes, app errors, your iPhone's model, its system version, the app's version and language, and a random identifier kept on your iPhone. If you sign in, this identifier is linked to your account, with your email.</p>
+        <p>Neither your photos nor your questionnaire answers are sent there. Since November 1, 2026, PostHog no longer derives your country or city; before that, it derived them from your IP address. This data is kept as long as it helps measure app usage, or until you ask us to erase it.</p>
+
+        <h3>RevenueCat (purchases), in the United States</h3>
+        <p>To manage your Follicle Pro purchases: an identifier (anonymous without an account, your account's otherwise) and the status of your purchases. No banking data: Apple handles payment.</p>
+
+        <h3>Apple and Google (sign-in)</h3>
+        <p>If you sign in with Apple or Google, we receive your name and email (or Apple's private relay address).</p>
+
+        <p>OpenAI and RevenueCat are in the United States: these transfers outside the European Union are covered by the European Commission's standard contractual clauses.</p>
+      </div>
+
+      <div class="card">
+        <h2><span class="section-number">6</span> How long</h2>
+        <ul>
+          <li><strong>On your iPhone</strong>: until you delete your data in the app, or the app.</li>
+          <li><strong>On your account</strong>: until you delete it (section 7).</li>
+          <li><strong>OpenAI</strong>: 30 days at most.</li>
+          <li><strong>PostHog</strong>: see section 5.</li>
+          <li><strong>Purchases</strong>: RevenueCat and Apple keep purchase history according to their legal obligations.</li>
+        </ul>
+      </div>
+
+      <div class="card">
+        <h2><span class="section-number">7</span> Deleting your data</h2>
+        <p>In the app, Profile &rsaquo; Settings &rsaquo; <strong>Delete all data</strong> erases the data on your iPhone and, if you are signed in, your scans, photos and answers on our servers, then signs you out.</p>
+        <p>In this version, this button does not delete your account itself (email and name), nor your statistics at PostHog. For that, write to <a href="mailto:follicle.app@gmail.com">follicle.app@gmail.com</a> from your account's email address: we delete the account and these statistics, and confirm it to you. The next version will delete the account directly from the app.</p>
+        <p>A subscription is cancelled separately, in Settings &rsaquo; your name &rsaquo; Subscriptions.</p>
+      </div>
+
+      <div class="card">
+        <h2><span class="section-number">8</span> Your rights</h2>
+        <ul>
+          <li><strong>Access and portability</strong>: Profile &rsaquo; Settings &rsaquo; Export my data, a text with your profile, your answers and your score history. Photos are not in it; ask us if you want them.</li>
+          <li><strong>Rectification</strong>: edit your information in your Profile.</li>
+          <li><strong>Erasure</strong>: see section 7.</li>
+          <li><strong>Objecting to statistics</strong>: write to us; we erase your statistics at PostHog. The next version will have a setting to turn them off.</li>
+          <li><strong>Complaint</strong>: to your data protection authority (in France, the CNIL, <a href="https://www.cnil.fr">cnil.fr</a>).</li>
+        </ul>
+        <p>We answer any request within one month at most.</p>
+      </div>
+
+      <div class="card">
+        <h2><span class="section-number">9</span> Advertising and tracking</h2>
+        <p>Follicle shows no advertising, sells no data, works with no data broker and does not track you across apps.</p>
+      </div>
+
+      <div class="card">
+        <h2><span class="section-number">10</span> Contact and updates</h2>
+        <p>A question about your data: <a href="mailto:follicle.app@gmail.com">follicle.app@gmail.com</a>. If this policy changes, the new version is published here, with its date.</p>
+      </div>
+
+      <div class="footer">
+        <p>&copy; 2026 Pidotis &mdash; Follicle</p>
+        <a href="support.html">Help &amp; Support &rarr;</a>
+      </div>
     </div>
 
   </div>
 
   <script>
-    const translations = {
-      fr: {
-        'page-title': 'Politique de confidentialit\u00e9',
-        'page-date': 'Date d\u2019effet : 16 f\u00e9vrier 2026',
-        's1-text': 'Follicle est une application d\u2019analyse capillaire. Nous respectons votre vie priv\u00e9e et vos donn\u00e9es personnelles. Cette politique explique comment nous collectons, utilisons et prot\u00e9geons vos informations.',
-        's2-title': 'Collecte des donn\u00e9es',
-        's2-intro': 'Donn\u00e9es collect\u00e9es :',
-        's2-list': [
-          'Photos capillaires (visage, vertex, tempes, occiput)',
-          'R\u00e9ponses aux questionnaires (profil de base, express, approfondi)',
-          'Score d\u2019analyse et historique',
-          'Donn\u00e9es de profil (nom, email si connect\u00e9)',
-          'Pr\u00e9f\u00e9rences d\u2019application',
-        ],
-        's2-outro': 'Toutes ces donn\u00e9es sont cr\u00e9\u00e9es par vous et pour vous.',
-        's3-title': 'Utilisation des donn\u00e9es',
-        's3-intro': 'Vos donn\u00e9es sont utilis\u00e9es exclusivement pour :',
-        's3-list': [
-          'G\u00e9n\u00e9rer votre analyse capillaire personnalis\u00e9e',
-          'Calculer votre score et suivre votre \u00e9volution',
-          'Fournir des recommandations adapt\u00e9es \u00e0 votre profil',
-          'Permettre la simulation de greffe capillaire',
-          'Synchroniser vos donn\u00e9es entre appareils (si connect\u00e9)',
-        ],
-        's4-title': 'Stockage et s\u00e9curit\u00e9',
-        's4-intro': 'Par d\u00e9faut, toutes vos donn\u00e9es sont stock\u00e9es <span class="highlight">localement sur votre appareil</span>.',
-        's4-sub': 'Si vous cr\u00e9ez un compte :',
-        's4-list': [
-          'Les donn\u00e9es sont <strong>chiffr\u00e9es en transit</strong> (TLS 1.3)',
-          'Stockage s\u00e9curis\u00e9 via <strong>Supabase</strong> (h\u00e9berg\u00e9 en Europe)',
-          'Photos stock\u00e9es dans des buckets priv\u00e9s avec acc\u00e8s contr\u00f4l\u00e9 (RLS)',
-          'Tokens d\u2019authentification stock\u00e9s dans le <strong>Secure Store</strong> de l\u2019appareil',
-        ],
-        's5-title': 'Services tiers',
-        's5-h3a': 'Service d\u2019analyse IA',
-        's5-text-a': 'Vos photos sont envoy\u00e9es \u00e0 un service d\u2019intelligence artificielle pour analyse visuelle uniquement. Les images ne sont pas conserv\u00e9es apr\u00e8s traitement. Aucune donn\u00e9e personnelle identifiable n\u2019est envoy\u00e9e.',
-        's5-text-b': 'H\u00e9bergement des donn\u00e9es cloud (PostgreSQL + Storage).',
-        's5-text-c': 'Authentification s\u00e9curis\u00e9e \u2014 nous ne stockons que votre nom et email.',
-        's6-title': 'Vos droits (RGPD)',
-        's6-intro': 'Conform\u00e9ment au RGPD, vous disposez des droits suivants :',
-        's6-r1': 'Droit d\u2019acc\u00e8s', 's6-d1': 'Consultez toutes vos donn\u00e9es dans l\u2019application',
-        's6-r2': 'Droit de portabilit\u00e9', 's6-d2': 'Exportez vos donn\u00e9es depuis Param\u00e8tres > Exporter',
-        's6-r3': 'Droit de rectification', 's6-d3': 'Modifiez vos informations depuis votre Profil',
-        's6-r4': 'Droit \u00e0 l\u2019effacement', 's6-d4': 'Supprimez toutes vos donn\u00e9es depuis Param\u00e8tres > Supprimer mes donn\u00e9es',
-        's6-r5': 'Droit d\u2019opposition', 's6-d5': 'Vous pouvez utiliser l\u2019application sans compte (mode local)',
-        's7-title': 'Cookies et trackers',
-        's7-text': 'Follicle n\u2019utilise <span class="highlight">aucun cookie</span>, <span class="highlight">aucun tracker</span>, <span class="highlight">aucun outil d\u2019analytics tiers</span>.',
-        's7-text2': 'Nous ne collectons aucune donn\u00e9e de navigation ou de comportement.',
-        's8-intro': 'Pour toute question relative \u00e0 vos donn\u00e9es :',
-        's8-delay': 'Nous nous engageons \u00e0 r\u00e9pondre dans un d\u00e9lai de <span class="highlight">48 heures</span>.',
-        'footer-link': 'Aide & Support \u2192',
-      },
-      en: {
-        'page-title': 'Privacy Policy',
-        'page-date': 'Effective date: February 16, 2026',
-        's1-text': 'Follicle is a hair analysis application. We respect your privacy and personal data. This policy explains how we collect, use and protect your information.',
-        's2-title': 'Data Collection',
-        's2-intro': 'Data collected:',
-        's2-list': [
-          'Hair photos (face, vertex, temples, occiput)',
-          'Questionnaire answers (baseline profile, express, in-depth)',
-          'Analysis score and history',
-          'Profile data (name, email if signed in)',
-          'App preferences',
-        ],
-        's2-outro': 'All this data is created by you and for you.',
-        's3-title': 'Data Usage',
-        's3-intro': 'Your data is used exclusively for:',
-        's3-list': [
-          'Generating your personalized hair analysis',
-          'Calculating your score and tracking your progress',
-          'Providing recommendations tailored to your profile',
-          'Enabling hair transplant simulation',
-          'Syncing your data across devices (if signed in)',
-        ],
-        's4-title': 'Storage & Security',
-        's4-intro': 'By default, all your data is stored <span class="highlight">locally on your device</span>.',
-        's4-sub': 'If you create an account:',
-        's4-list': [
-          'Data is <strong>encrypted in transit</strong> (TLS 1.3)',
-          'Secure storage via <strong>Supabase</strong> (hosted in Europe)',
-          'Photos stored in private buckets with controlled access (RLS)',
-          'Auth tokens stored in the device\u2019s <strong>Secure Store</strong>',
-        ],
-        's5-title': 'Third-Party Services',
-        's5-h3a': 'AI Analysis Service',
-        's5-text-a': 'Your photos are sent to an artificial intelligence service for visual analysis only. Images are not retained after processing. No personally identifiable data is sent.',
-        's5-text-b': 'Cloud data hosting (PostgreSQL + Storage).',
-        's5-text-c': 'Secure authentication \u2014 we only store your name and email.',
-        's6-title': 'Your Rights (GDPR)',
-        's6-intro': 'Under the GDPR, you have the following rights:',
-        's6-r1': 'Right of access', 's6-d1': 'View all your data within the app',
-        's6-r2': 'Right to portability', 's6-d2': 'Export your data from Settings > Export',
-        's6-r3': 'Right to rectification', 's6-d3': 'Edit your information from your Profile',
-        's6-r4': 'Right to erasure', 's6-d4': 'Delete all your data from Settings > Delete my data',
-        's6-r5': 'Right to object', 's6-d5': 'You can use the app without an account (local mode)',
-        's7-title': 'Cookies & Trackers',
-        's7-text': 'Follicle uses <span class="highlight">no cookies</span>, <span class="highlight">no trackers</span>, <span class="highlight">no third-party analytics</span>.',
-        's7-text2': 'We do not collect any browsing or behavioral data.',
-        's8-intro': 'For any questions about your data:',
-        's8-delay': 'We are committed to responding within <span class="highlight">48 hours</span>.',
-        'footer-link': 'Help & Support \u2192',
-      },
-    };
-
-    let currentLang = 'fr';
-
     function setLang(lang) {
-      currentLang = lang;
-      localStorage.setItem('follicle-lang', lang);
       document.documentElement.lang = lang;
+      document.querySelectorAll('[data-lang]').forEach(function (el) {
+        el.style.display = el.getAttribute('data-lang') === lang ? '' : 'none';
+      });
       document.getElementById('btn-fr').classList.toggle('active', lang === 'fr');
       document.getElementById('btn-en').classList.toggle('active', lang === 'en');
-
-      const t = translations[lang];
-      Object.keys(t).forEach(id => {
-        const el = document.getElementById(id);
-        if (!el) return;
-        const val = t[id];
-        if (Array.isArray(val)) {
-          const items = el.querySelectorAll('li');
-          val.forEach((text, i) => { if (items[i]) items[i].innerHTML = text; });
-        } else {
-          el.innerHTML = val;
-        }
-      });
-
       document.title = lang === 'fr'
-        ? 'Politique de confidentialit\u00e9 \u2014 Follicle'
-        : 'Privacy Policy \u2014 Follicle';
+        ? 'Politique de confidentialité — Follicle'
+        : 'Privacy Policy — Follicle';
+      try { localStorage.setItem('follicle-lang', lang); } catch (e) {}
     }
 
-    // Restore saved lang, or auto-detect from browser
-    (function() {
-      var saved = localStorage.getItem('follicle-lang');
-      if (saved) { setLang(saved); return; }
-      var browserLang = (navigator.language || navigator.userLanguage || 'fr').substring(0, 2).toLowerCase();
-      if (browserLang !== 'fr') setLang('en');
+    // Langue enregistrée, sinon celle du navigateur (français par défaut).
+    (function () {
+      var saved = null;
+      try { saved = localStorage.getItem('follicle-lang'); } catch (e) {}
+      var browser = (navigator.language || 'fr').substring(0, 2).toLowerCase();
+      setLang(saved === 'fr' || saved === 'en' ? saved : (browser === 'fr' ? 'fr' : 'en'));
     })();
   </script>
 </body>
